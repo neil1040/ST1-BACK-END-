@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="FormCss.css">
+    
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+<body>
+    <div class="container" style="background-color: white;">
+        <header>Registration</header>
+
+        <form action="form-submit" method="POST">
+            <div class="form first">
+                <div class="details personal" style="background-color: white;">
+                    <span class="title" style="background-color: white;">Personal Details</span>
+
+                    <div class="fields" style="background-color: white;">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" name="Fullname" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" placeholder="Enter birth date" name="DOB" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="text" placeholder="Enter your email" name="Email" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="number" placeholder="Enter mobile number" name="PhoneNo" required>
+                        </div>
+
+                        <div class="input-field" style="background-color: white;">
+                            <label>Gender</label>
+                            <select name="Gender" required>
+                                <option disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Address</label>
+                            <input type="text" placeholder="Enter your Address" name="Address" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <span class="title" style="background-color: white;">Marks Details</span>
+
+                    <div class="fields" style="background-color: white;">
+                        <div class="input-field">
+                            <label>Mathematics</label>
+                            <input type="number" id="Mmarks" placeholder="Enter Mathematics Marks" name="Mathematics" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Science</label>
+                            <input type="number" id="Scimarks" placeholder="Enter Science Marks" name="History" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>English</label>
+                            <input type="number" id="Emarks" placeholder="Enter English Marks" name="English" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>General Knowledge</label>
+                            <input type="number" id="GKmarks" placeholder="Enter G.K. Marks" name="EVS" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Sanskrit</label>
+                            <input type="number" id="Smarks" placeholder="Enter Sanskrit Marks" onchange="myfunction()" name="Sanskrit" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Total Marks</label>
+                            <input type="number" id="total" placeholder="Enter Total Marks" name="TotalMarks" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Average</label>
+                            <input type="text" id="avg" placeholder="Average" name="Average" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Grade</label>
+                            <input type="text" id="Grade" placeholder="Grade" name="Grade" required>
+                        </div>
+                        <button type="submit" class="nextBtn">
+                            <input type="submit" class="btnText">
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div> 
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        function myfunction() {
+          var n, k, r, e, v, sum, avg;
+          n = parseFloat(document.getElementById("Mmarks").value);
+          k = parseFloat(document.getElementById("Scimarks").value);
+          r = parseFloat(document.getElementById("Emarks").value);
+          e = parseFloat(document.getElementById("GKmarks").value);
+          v = parseFloat(document.getElementById("Smarks").value);
+          sum = n + k + r + e + v;
+          avg = sum / 5;
+          document.getElementById("total").value = sum;
+          document.getElementById("avg").value = avg;
+  
+          if (avg >= 90) {
+            document.getElementById("Grade").value = "A";
+          }else if(avg<90 && avg>=75){
+            document.getElementById("Grade").value = "B";
+          }
+          else if(avg<75 && avg>=55){
+            document.getElementById("Grade").value = "C";
+          }
+          else if(avg<55 && avg>=33){
+            document.getElementById("Grade").value = "D";
+          }
+          else {
+            document.getElementById("Grade").value = "F";
+          }
+        }
+    </script>
+</body>
+</html>
